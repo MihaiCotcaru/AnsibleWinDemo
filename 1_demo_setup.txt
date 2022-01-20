@@ -27,3 +27,6 @@ The initial setup for the AAP2.1 Windows demo
 - Source Control Credential: Git Credentials
 - Update Revision on Lunch - checked
 
+5. Create Job template for Windows manual update:
+- use JT_Win_update_manual.txt
+- for Survey use READDOC.txt
