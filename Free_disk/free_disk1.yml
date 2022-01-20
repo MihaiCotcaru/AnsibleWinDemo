@@ -1,0 +1,21 @@
+---
+- name: Check file system free space
+  hosts: all
+
+  tasks:
+  - name: Get disk facts
+  community.windows.win_disk_facts:
+
+  - name: Output first disk size
+    debug:
+      var: ansible_facts.disks[0].partition[1].volumes.size_remaining
+
+  - name: Convert first system disk into various formats
+    debug:
+      msg: '{{ disksize_gb }}'
+      msg: Free disk size: {{ size_remaining_gb }}
+    vars:
+      # Get first system disk
+      disk: '{{ ansible_facts.disks|selectattr("system_disk")|first }}'
+      disksize_gb: '{{ (disk.size/1000|pow(3))|round|int }} GB'  # returns "240 GB" (value in GB)
+      size_remaining_gb: '{{ (disk.partition[1].volumes.size_remaining/1000|pow(3))|round|int }} GB'

@@ -1,0 +1,16 @@
+---
+- name: Check file system free space
+  hosts: all
+
+  tasks: 
+  - name: get disk free space
+    win_shell: Get-PsDrive c | ConvertTo-Json
+    register: output
+
+  - name: extract free space
+    set_fact:
+      free_json: "{{ output.stdout|from_json}}"
+
+  - name:
+    debug:
+      var: free_json.Free
