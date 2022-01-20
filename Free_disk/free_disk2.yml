@@ -13,4 +13,4 @@
 
   - name:
     debug:
-      var: free_jason.Free
+      var: free_json.Free
