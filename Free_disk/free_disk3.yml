@@ -9,7 +9,7 @@
 
   - block:
       - debug:
-          msg: "On C: there is not enough free space. Free space is, {{ freespace.stdout_lines[1] }} "
+          msg: "On C: there is not enough free space. Free space is {{ free_GB }} GB."
       - meta: end_play
     when: freespace.stdout_lines[1]|int < 1500000000
 
