@@ -1,11 +1,15 @@
-- name: Install all critical and security updates
-  win_updates:
-    category_names:
-    - CriticalUpdates
-    - SecurityUpdates
-    state: installed
-  register: update_result
+---
+- hosts: windows
+  name: This is my Windows scheduled patching playbook
+  tasks:
+  - name: Install all critical and security updates
+    win_updates:
+      category_names:
+      - CriticalUpdates
+      - SecurityUpdates
+      state: installed
+    register: update_result
 
-- name: Reboot host if required
-  win_reboot:
-  when: update_result.reboot_required
+  - name: Reboot host if required
+    win_reboot:
+    when: update_result.reboot_required

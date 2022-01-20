@@ -1,0 +1,11 @@
+Key 	                Value 	                Note
+NAME 	                Windows Updates Manual	 
+DESCRIPTION 	  	    Manual updated for servers 
+JOB TYPE 	            Run 	 
+INVENTORY 	            Workshop Inventory 	 
+PROJECT 	            WinDemo
+Execution Environment:  Ansible Engine 2.9 	 
+Playbook 	            WinUpdate/site.yml	 
+MACHINE CREDENTIAL 	    Workshop Credentials 	 
+LIMIT 	                windows 	 
+OPTIONS 	            [*] ENABLE FACT CACHE
