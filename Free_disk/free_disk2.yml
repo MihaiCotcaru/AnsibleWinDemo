@@ -13,6 +13,4 @@
 
   - name:
     debug:
-      msg: '{{ disksize_gb }}'
-    vars:
-      disksize_gb: '{{ (from_jason.Free/1000|pow(3))|round|int }} GB'
+      var: free_jason.Free
