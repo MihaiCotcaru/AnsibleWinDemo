@@ -8,7 +8,7 @@
 
   - name: Extract free space
     set_fact:
-      free_space: "{{ ansible_facts.disks[0].partition.volumes.size_remaining }}"
+      free_space: "{{ ansible_facts.disks.partition.volumes.size_remaining }}"
 
   - name: Convert first system disk into various formats
     debug:
