@@ -1,0 +1,17 @@
+---
+- name: 'Check disk space on C:'  
+  hosts: all
+  gather_facts: no
+  tasks:
+  - name: 'Check free space in C:'
+    win_shell: 'Get-PSDrive C | Select-Object Free | ft -HideTableHeaders'
+    register: freespace
+
+  - block:
+      - debug:
+          msg: "On C: there is not enough free space. Free space is, {{ freespace.stdout_lines[1] }} "
+      - meta: end_play
+    when: freespace.stdout_lines[1]|int < 1500000000
+
+  - debug:
+      msg: "Directory C: has free space enough. Continue play."
