@@ -4,8 +4,10 @@ DESCRIPTION 	  	    Manual updated for servers
 JOB TYPE 	            Run 	 
 INVENTORY 	            Workshop Inventory 	 
 PROJECT 	            WinDemo
-Execution Environment:  Ansible Engine 2.9 	 
+Execution Environment:  windows workshop execution environment 	 
 Playbook 	            WinUpdate/site.yml	 
 MACHINE CREDENTIAL 	    Workshop Credentials 	 
 LIMIT 	                windows 	 
 OPTIONS 	            [*] ENABLE FACT CACHE
+
+Add survey1+2 - see READDOC.txt

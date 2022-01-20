@@ -34,8 +34,8 @@ PROMPT 			        Reboot after install?
 DESCRIPTION 		    If the server needs to reboot, then do so after install 	 
 ANSWER VARIABLE NAME 	reboot_server 	 
 ANSWER TYPE 		    Multiple Choice (single select) 	 
-MULTIPLE CHOICE OPTIONS Yes No 	 
-DEFAULT ANSWER 		    Yes 	 
+MULTIPLE CHOICE OPTIONS yes no 	 
+DEFAULT ANSWER 		    yes 	 
 REQUIRED 		        Selected
 ================================
 Change button to ON
