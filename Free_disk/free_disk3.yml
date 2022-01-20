@@ -16,4 +16,4 @@
   - debug:
       msg: "Directory C: has free space enough. Free space is {{ free_GB }} GB."
     vars:
-      free_GB: "{{ (freespace.stdout_lines[1]*0.001)|int) }}"
+      free_GB: "{{ freespace.stdout_lines[1] * 0.001 }}"
