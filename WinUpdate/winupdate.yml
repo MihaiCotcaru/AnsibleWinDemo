@@ -3,13 +3,21 @@
   name: This is my Windows scheduled patching playbook
   tasks:
   - name: Install all critical and security updates
-    win_updates:
-      category_names:
-      - CriticalUpdates
-      - SecurityUpdates
-      state: installed
-    register: update_result
+    block:
+    - name: Installing Windows updates
+      win_updates:
+        category_names:
+        - CriticalUpdates
+        - SecurityUpdates
+        state: installed
+        reboot: true
+        reboot_timeout: 600
+      register: update_result
+      failed_when:
+        - update_result.failed_update_count is defined
+        - update_result.failed_update_count > 0
 
-  - name: Reboot host if required
-    win_reboot:
-    when: update_result.reboot_required
+    rescue:
+    - name: Showing up failure message
+      debug:
+        msg: The Critical and Security Updates has failed.
