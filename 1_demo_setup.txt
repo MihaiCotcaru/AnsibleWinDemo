@@ -34,3 +34,10 @@ The initial setup for the AAP2.1 Windows demo
 Run the Job Template: 
 - Templates: > Windows Updates Manual > press the Rocket sign (right side) > Answer questions > Lunch
 
+5. Create Job template for Windows scheduled update:
+- use JT_Win_update_sched.txt
+- under Templates > Windows Updates Scheduled > Schedules
+        - Name:         Weekly updates
+        - Description:  Weekly updates for Windows servers
+        - Start time: 3:00 AM
+        - Repeat Frequency: Every week on Sunday
