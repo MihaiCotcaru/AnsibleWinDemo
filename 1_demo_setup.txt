@@ -1,0 +1,29 @@
+The initial setup for the AAP2.1 Windows demo
+
+1. Verify credentials: 'Workshop Credentials' existance
+
+2. Create SCM credentials: 
+- 'Git Credential'; 
+- Org Default; 
+- CredentialType: SCM
+
+3. Verify inventory: 
+- Workshop inventory
+- Hosts: student1-ansible-1; student1-win1
+- Groups: windows with Hosts: student1-win1
+        Group details:
+        ansible_connection: winrm
+        ansible_port: 5986
+        ansible_winrm_server_cert_validation: ignore
+        ansible_winrm_transport: credssp
+
+4. Create Projects:
+- Name: WinDemo
+- Description: SCM for the WinDemo
+- Organization: Default
+- Default Execution Environment: Ansible Engine 2.9 execution environment
+- Source Control Credential Type: Git
+- Source Control URL: https://github.com/MihaiCotcaru/AnsibleWinDemo.git
+- Source Control Credential: Git Credentials
+- Update Revision on Lunch - checked
+
