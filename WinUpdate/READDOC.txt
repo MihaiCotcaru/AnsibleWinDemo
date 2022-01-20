@@ -1,0 +1,40 @@
+https://ansible.github.io/workshops/exercises/ansible_windows/7-win-patch/
+
+The win_updates module is used to either check for or to install Windows Updates. The module utilizes the built in Windows Update service to function. This means that you still will need a backend system like WSUS or the online Windows Update Servers to download updates from. If your server’s Windows Update configuration is set to automatically download but not install, you can also utilize the module to stage updates by telling it to search for updates. We also have the ability to whitelist or blacklist updates. For example we could tell it to only install one particular security update instead of every update available.
+
+winupdate.yml - playbook used for scheduled updates
+site.yml - playbook used for interactive updates with survey:
+survey 1: (for categories var in playbook) 
+================================
+Key 	                    Value 	                             Note
+PROMPT 	                    Categories 	 
+DESCRIPTION 	            Which Categories to install? 	 
+ANSWER VARIABLE NAME 	    categories 	 
+ANSWER TYPE 	            Multiple Choice (multiple select) 	There’s also a single selection option
+MULTIPLE CHOICE OPTIONS 	Application
+                            Connectors
+                            CriticalUpdates
+                            DefinitionUpdates
+                            DeveloperKits
+                            FeaturePacks Guidance
+                            SecurityUpdates
+                            ServicePacks
+                            Tools
+                            UpdateRollups
+                            Updates 	 
+DEFAULT ANSWER 	            CriticalUpdates
+                            SecurityUpdates 	 
+REQUIRED                	Selected
+================================
+
+survey 2: (for reboot_server var in playbook)
+================================
+Key 			        Value 	            Note
+PROMPT 			        Reboot after install? 	 
+DESCRIPTION 		    If the server needs to reboot, then do so after install 	 
+ANSWER VARIABLE NAME 	reboot_server 	 
+ANSWER TYPE 		    Multiple Choice (single select) 	 
+MULTIPLE CHOICE OPTIONS Yes No 	 
+DEFAULT ANSWER 		    Yes 	 
+REQUIRED 		        Selected
+================================
