@@ -30,3 +30,7 @@ The initial setup for the AAP2.1 Windows demo
 5. Create Job template for Windows manual update:
 - use JT_Win_update_manual.txt
 - for Survey use READDOC.txt
+
+Run the Job Template: 
+- Templates: > Windows Updates Manual > press the Rocket sign (right side) > Answer questions > Lunch
+
