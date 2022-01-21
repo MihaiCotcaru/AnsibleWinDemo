@@ -22,7 +22,7 @@
     - name: Registry file is retrieved
       win_uri:
         url: >
-          https://gitlab.example.com/student/updates/raw/master/files/RedHatTraining.reg
+          https://github.com/MihaiCotcaru/AnsibleWinDemo/Install_software//RedHatTraining.reg
         dest: C:\Windows\Temp\RedHatTraining.reg
         validate_certs: no
         force_basic_auth: yes
